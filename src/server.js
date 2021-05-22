@@ -5,16 +5,10 @@ const kodersRouter = require('./routers/koders');
 const mentorsRouters = require('./routers/mentors')
 const app = express();
 
+const printRequest = require('./middlewares/printRequest')
+
 app.use(express.json())
-app.use((req,res,next)=> {
-    let options = {
-        method: req.method,
-        path: req.url,
-        data: req.body
-    }
-    console.log(`${req.method} ${req.url}`, req.body)
-    next()
-})
+app.use(printRequest.printRequest)
 app.use('/koders', kodersRouter);
 app.use('/mentors', mentorsRouters);
 
