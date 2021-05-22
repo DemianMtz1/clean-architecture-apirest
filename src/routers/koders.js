@@ -68,4 +68,25 @@ router.delete('/:id', async (req, res) => {
     }
 })
 
+router.patch('/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const koderUpdated = await koderUseCases.updateById(id, req.body);
+
+        res.status(200);
+        res.json({
+            succes: true,
+            message: 'Koder updated',
+            data: koderUpdated
+        })
+    } catch (error) {
+        res.status(400);
+        res.json({
+            succes: false,
+            message: 'Error at removeKoder',
+            error: error.message
+        });
+    }
+})
+
 module.exports = router;

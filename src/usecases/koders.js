@@ -12,8 +12,13 @@ function createKoder(koders){
 function removeKoder(id){
     return Koders.findByIdAndDelete(id);
 }
+function updateById(id, dataToUpdate){
+    return Koders.findByIdAndUpdate(id, dataToUpdate)
+}
+
 module.exports = {
     getAll,
     createKoder,
-    removeKoder
+    removeKoder,
+    updateById
 };
