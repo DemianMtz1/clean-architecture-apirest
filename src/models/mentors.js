@@ -24,7 +24,8 @@ const mentorsSchema = mongoose.Schema({
         required: true
     },
     modulo: {
-        type: [String],
+        type: String,
+        enum: [ 'front', 'back', 'cloud', 'react' ],
         required: true
   }
 })
