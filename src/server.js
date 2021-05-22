@@ -12,7 +12,7 @@ app.use((req,res,next)=> {
         path: req.url,
         data: req.body
     }
-    console.log(options)
+    console.log(`${req.method} ${req.url}`, req.body)
     next()
 })
 app.use('/koders', kodersRouter);
